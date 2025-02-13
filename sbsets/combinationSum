@@ -1,0 +1,21 @@
+def combinationSum(candidates, target):
+    result = []
+    
+    def backtrack(remaining, path, options):
+        if remaining == 0:
+            result.append(path)
+            return
+        if remaining < 0 or not options:
+            return
+        
+        # Always pick the first element and decide to include or exclude it
+        backtrack(remaining - options[0], path + [options[0]], options)  # Include
+        backtrack(remaining, path, options[1:])  # Exclude (move to the next candidate)
+    
+    backtrack(target, [], candidates)
+    return result
+
+# Example Usage
+candidates = [2, 3, 6, 7]
+target = 7
+print(combinationSum(candidates, target))  # Output: [[2,2,3],[7]]
