@@ -12,6 +12,6 @@ def slove(s , l ,r,res ):
 class Solution(object):
     def permute(self, nums):
         res = []
-        slove(nums,0,len(nums)-1,res)
+        slove(nums,0,len(nums)-1  ,res)
         return res
 
